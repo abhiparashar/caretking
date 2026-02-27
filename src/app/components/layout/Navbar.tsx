@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ShoppingBag, Search, User } from "lucide-react";
 import { MagneticButton } from "@/app/components/ui/MagneticButton";
+import { ThemeToggle } from "@/app/components/ui/ThemeToggle";
 import { cn } from "@/app/lib/utils";
 
 const navLinks = [
@@ -90,6 +91,8 @@ export function Navbar() {
               >
                 <User size={20} />
               </motion.button>
+
+              <ThemeToggle />
 
               <motion.button
                 whileHover={{ scale: 1.1 }}

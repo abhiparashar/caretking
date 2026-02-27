@@ -26,9 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased bg-[#0A0A0A] text-[#E8E8E8]`}
+        className={`${inter.variable} ${playfair.variable} antialiased transition-colors duration-300`}
+        style={{
+          backgroundColor: "var(--background)",
+          color: "var(--foreground)",
+        }}
       >
         {children}
       </body>

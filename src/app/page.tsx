@@ -15,7 +15,7 @@ export default function Home() {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   return (
-    <main className="relative min-h-screen bg-[#0A0A0A] overflow-x-hidden">
+    <main className="relative min-h-screen overflow-x-hidden transition-colors duration-300" style={{ backgroundColor: "var(--background)" }}>
       {/* Ambient Particle Background */}
       <ParticleField />
 
