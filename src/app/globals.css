@@ -13,21 +13,29 @@
 }
 
 [data-theme="light"] {
-  --background: #FAFAFA;
-  --foreground: #1A1A2E;
-  --gold: #B8956B;
-  --platinum: #4A4A5A;
-  --deep-navy: #F5F5F7;
+  --background: #FAF8F5;
+  --foreground: #2D2D2D;
+  --gold: #C9A96E;
+  --gold-light: #D4B87A;
+  --gold-dark: #B8956B;
+  --platinum: #6B6B6B;
+  --deep-navy: #F5F2ED;
   --rose-gold: #C0808A;
-  --obsidian: #1A1A2E;
-  --card-bg: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(184, 149, 107, 0.2);
+  --obsidian: #2D2D2D;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-bg-hover: rgba(255, 255, 255, 0.95);
+  --border-color: rgba(201, 169, 110, 0.25);
+  --shadow-soft: 0 4px 30px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.12);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
   --color-platinum: var(--platinum);
   --color-deep-navy: var(--deep-navy);
   --color-rose-gold: var(--rose-gold);
@@ -87,22 +95,78 @@ body {
 /* Light mode adjustments */
 [data-theme="light"] .glass,
 [data-theme="light"] .glass-strong {
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+}
+
+[data-theme="light"] .glass:hover,
+[data-theme="light"] .glass-strong:hover {
+  background: var(--card-bg-hover);
+  box-shadow: var(--shadow-medium);
+}
+
+[data-theme="light"] .glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 248, 245, 0.8) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  box-shadow: var(--shadow-soft);
+}
+
+[data-theme="light"] .glass-card:hover {
+  box-shadow: var(--shadow-strong);
+  border-color: rgba(201, 169, 110, 0.3);
 }
 
 [data-theme="light"] ::-webkit-scrollbar-track {
-  background: #F5F5F7;
+  background: #F5F2ED;
 }
 
 [data-theme="light"] ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #B8956B, #C0808A);
+  background: linear-gradient(180deg, #C9A96E, #D4B87A);
+}
+
+[data-theme="light"] ::selection {
+  background: rgba(201, 169, 110, 0.25);
+  color: #2D2D2D;
 }
 
 [data-theme="light"] .text-gold-gradient {
-  background: linear-gradient(135deg, #B8956B 0%, #D4B87A 50%, #B8956B 100%);
+  background: linear-gradient(135deg, #B8956B 0%, #D4AF37 35%, #C9A96E 70%, #B8956B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 2px 20px rgba(201, 169, 110, 0.15);
+}
+
+[data-theme="light"] .text-gold-gradient-alt {
+  background: linear-gradient(90deg, #C9A96E 0%, #E8D5A3 50%, #C9A96E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="light"] .gold-border {
+  border: 1px solid rgba(201, 169, 110, 0.3);
+}
+
+[data-theme="light"] .gold-border-hover:hover {
+  border-color: rgba(201, 169, 110, 0.5);
+}
+
+[data-theme="light"] .section-gradient {
+  background: linear-gradient(180deg, #FAF8F5 0%, #F5F2ED 50%, #FAF8F5 100%);
+}
+
+[data-theme="light"] .card-float {
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
+}
+
+[data-theme="light"] .card-float:hover {
+  transform: translateY(-8px);
 }
 
 /* Shimmer Effect */
@@ -195,4 +259,21 @@ body {
 ::selection {
   background: rgba(201, 169, 110, 0.3);
   color: #E8E8E8;
+}
+
+/* Theme visibility utilities */
+.dark-only {
+  display: block;
+}
+
+.light-only {
+  display: none;
+}
+
+[data-theme="light"] .dark-only {
+  display: none;
+}
+
+[data-theme="light"] .light-only {
+  display: block;
 }

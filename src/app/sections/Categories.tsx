@@ -12,8 +12,11 @@ export function Categories() {
 
   return (
     <section id="categories" className="relative py-32 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#1A1A2E]/20 to-[#0A0A0A]" />
+      {/* Background Elements - Dark Mode */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#1A1A2E]/20 to-[#0A0A0A] dark-only" />
+      
+      {/* Background Elements - Light Mode */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5] via-[#F5F2ED]/50 to-[#FAF8F5] light-only" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
@@ -23,10 +26,10 @@ export function Categories() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <span className="text-[#C9A96E] text-sm uppercase tracking-[0.3em] mb-4 block">
+          <span className="text-[var(--gold)] text-sm uppercase tracking-[0.3em] mb-4 block">
             Browse By
           </span>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl lg:text-6xl font-bold text-[#E8E8E8]">
+          <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--foreground)]">
             Categories
           </h2>
         </motion.div>
@@ -50,7 +53,8 @@ export function Categories() {
                 intensity="medium"
               >
                 {/* Background Image Placeholder */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A2E] to-[#0A0A0A]" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A2E] to-[#0A0A0A] dark-only" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FFFFFF] to-[#F5F2ED] light-only" />
 
                 {/* Category Icon/Visual */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -58,37 +62,38 @@ export function Categories() {
                 </div>
 
                 {/* Content Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent dark-only" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FAF8F5] via-[#FAF8F5]/70 to-transparent light-only" />
 
                 {/* Text Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="flex items-end justify-between">
                     <div>
-                      <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-[#E8E8E8] mb-2 group-hover:text-[#C9A96E] transition-colors">
+                      <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-[var(--foreground)] mb-2 group-hover:text-[var(--gold)] transition-colors">
                         {category.name}
                       </h3>
-                      <p className="text-[#E8E8E8]/50 text-sm mb-3">
+                      <p className="text-[var(--foreground)]/50 text-sm mb-3">
                         {category.description}
                       </p>
-                      <span className="text-[#C9A96E] text-xs uppercase tracking-wider">
+                      <span className="text-[var(--gold)] text-xs uppercase tracking-wider">
                         {category.count} Pieces
                       </span>
                     </div>
 
                     <motion.div
-                      className="w-12 h-12 rounded-full border border-[#C9A96E]/30 flex items-center justify-center group-hover:bg-[#C9A96E] group-hover:border-[#C9A96E] transition-all duration-300"
+                      className="w-12 h-12 rounded-full border border-[var(--gold)]/30 flex items-center justify-center group-hover:bg-[var(--gold)] group-hover:border-[var(--gold)] transition-all duration-300"
                       whileHover={{ scale: 1.1 }}
                     >
                       <ArrowUpRight
                         size={20}
-                        className="text-[#C9A96E] group-hover:text-[#0A0A0A] transition-colors"
+                        className="text-[var(--gold)] group-hover:text-[var(--background)] transition-colors"
                       />
                     </motion.div>
                   </div>
                 </div>
 
                 {/* Hover Border Effect */}
-                <div className="absolute inset-0 rounded-2xl border border-[#C9A96E]/0 group-hover:border-[#C9A96E]/30 transition-all duration-500" />
+                <div className="absolute inset-0 rounded-2xl border border-[var(--gold)]/0 group-hover:border-[var(--gold)]/30 transition-all duration-500" />
               </GlassCard>
             </motion.div>
           ))}
@@ -103,7 +108,7 @@ function CategoryVisual({ type }: { type: string }) {
     rings: (
       <svg
         viewBox="0 0 100 100"
-        className="w-32 h-32 text-[#C9A96E]/30 group-hover:text-[#C9A96E]/50 transition-colors"
+        className="w-32 h-32 text-[var(--gold)]/30 group-hover:text-[var(--gold)]/50 transition-colors"
         fill="currentColor"
       >
         <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="8" />
@@ -113,7 +118,7 @@ function CategoryVisual({ type }: { type: string }) {
     necklaces: (
       <svg
         viewBox="0 0 100 100"
-        className="w-32 h-32 text-[#C9A96E]/30 group-hover:text-[#C9A96E]/50 transition-colors"
+        className="w-32 h-32 text-[var(--gold)]/30 group-hover:text-[var(--gold)]/50 transition-colors"
         fill="none"
         stroke="currentColor"
         strokeWidth="3"
@@ -125,7 +130,7 @@ function CategoryVisual({ type }: { type: string }) {
     earrings: (
       <svg
         viewBox="0 0 100 100"
-        className="w-32 h-32 text-[#C9A96E]/30 group-hover:text-[#C9A96E]/50 transition-colors"
+        className="w-32 h-32 text-[var(--gold)]/30 group-hover:text-[var(--gold)]/50 transition-colors"
         fill="none"
         stroke="currentColor"
         strokeWidth="3"
@@ -139,7 +144,7 @@ function CategoryVisual({ type }: { type: string }) {
     bracelets: (
       <svg
         viewBox="0 0 100 100"
-        className="w-32 h-32 text-[#C9A96E]/30 group-hover:text-[#C9A96E]/50 transition-colors"
+        className="w-32 h-32 text-[var(--gold)]/30 group-hover:text-[var(--gold)]/50 transition-colors"
         fill="none"
         stroke="currentColor"
         strokeWidth="8"

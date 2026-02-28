@@ -44,11 +44,11 @@ export function MagneticButton({
 
   const variants = {
     primary:
-      "bg-gradient-to-r from-[#C9A96E] to-[#B76E79] text-[#0A0A0A] font-medium",
-    secondary: "bg-[#1A1A2E] text-[#E8E8E8] border border-[#C9A96E]/20",
+      "bg-gradient-to-r from-[#C9A96E] to-[#B76E79] text-[#0A0A0A] font-medium dark-only cursor-pointer",
+    secondary: "bg-[#1A1A2E] text-[#E8E8E8] border border-[#C9A96E]/20 dark-only cursor-pointer bg-[#F5F2ED] text-[#2D2D2D] border-[#C9A96E]/30 light-only cursor-pointer",
     outline:
-      "bg-transparent text-[#C9A96E] border border-[#C9A96E] hover:bg-[#C9A96E]/10",
-    ghost: "bg-transparent text-[#E8E8E8] hover:bg-[#E8E8E8]/5",
+      "bg-transparent text-[#C9A96E] border border-[#C9A96E] hover:bg-[#C9A96E]/10 cursor-pointer",
+    ghost: "bg-transparent text-[#E8E8E8] hover:bg-[#E8E8E8]/5 dark-only text-[#2D2D2D] hover:bg-[#2D2D2D]/5 light-only cursor-pointer",
   };
 
   return (

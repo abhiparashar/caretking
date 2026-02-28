@@ -48,9 +48,13 @@ export function About() {
       ref={containerRef}
       className="relative py-32 overflow-hidden"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-[#0A0A0A]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A2E]/40 via-transparent to-[#1A1A2E]/40" />
+      {/* Background - Dark Mode */}
+      <div className="absolute inset-0 bg-[#0A0A0A] dark-only" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A2E]/40 via-transparent to-[#1A1A2E]/40 dark-only" />
+      
+      {/* Background - Light Mode */}
+      <div className="absolute inset-0 bg-[#FAF8F5] light-only" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F5F2ED]/60 via-transparent to-[#F5F2ED]/60 light-only" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Main Content Grid */}
@@ -62,14 +66,14 @@ export function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
           >
-            <span className="text-[#C9A96E] text-sm uppercase tracking-[0.3em] mb-4 block">
+            <span className="text-[var(--gold)] text-sm uppercase tracking-[0.3em] mb-4 block">
               Our Story
             </span>
-            <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl lg:text-6xl font-bold text-[#E8E8E8] mb-8 leading-tight">
+            <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--foreground)] mb-8 leading-tight">
               Where Artistry
               <span className="block text-gold-gradient">Meets Eternity</span>
             </h2>
-            <div className="space-y-6 text-[#E8E8E8]/70 leading-relaxed">
+            <div className="space-y-6 text-[var(--foreground)]/70 leading-relaxed">
               <p>
                 Since 1895, AUREA has been at the forefront of luxury jewelry,
                 creating pieces that transcend time and trends. Our journey began
@@ -104,19 +108,20 @@ export function About() {
           >
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
               {/* Placeholder for About Image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A2E] via-[#0A0A0A] to-[#1A1A2E]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A2E] via-[#0A0A0A] to-[#1A1A2E] dark-only" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#FFFFFF] via-[#FAF8F5] to-[#F5F2ED] light-only" />
 
               {/* Decorative Elements */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                  className="w-64 h-64 border border-[#C9A96E]/20 rounded-full"
+                  className="w-64 h-64 border border-[var(--gold)]/20 rounded-full"
                 />
                 <motion.div
                   animate={{ rotate: -360 }}
                   transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                  className="absolute w-48 h-48 border border-[#C9A96E]/10 rounded-full"
+                  className="absolute w-48 h-48 border border-[var(--gold)]/10 rounded-full"
                 />
               </div>
 
@@ -126,7 +131,7 @@ export function About() {
                   <span className="text-8xl font-bold text-gold-gradient font-[family-name:var(--font-playfair)]">
                     130
                   </span>
-                  <span className="block text-[#E8E8E8]/60 text-sm uppercase tracking-[0.2em] mt-2">
+                  <span className="block text-[var(--foreground)]/60 text-sm uppercase tracking-[0.2em] mt-2">
                     Years of Excellence
                   </span>
                 </div>
@@ -143,7 +148,7 @@ export function About() {
                 <div className="text-3xl font-bold text-gold-gradient font-[family-name:var(--font-playfair)]">
                   50K+
                 </div>
-                <div className="text-[#E8E8E8]/60 text-sm">
+                <div className="text-[var(--foreground)]/60 text-sm">
                   Happy Clients
                 </div>
               </motion.div>
@@ -160,15 +165,15 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group text-center p-8 rounded-2xl border border-[#C9A96E]/10 hover:border-[#C9A96E]/30 transition-all duration-500 hover:bg-[#1A1A2E]/30"
+              className="group text-center p-8 rounded-2xl border border-[var(--gold)]/10 hover:border-[var(--gold)]/30 transition-all duration-500 hover:bg-[var(--deep-navy)]/30"
             >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#C9A96E]/10 flex items-center justify-center group-hover:bg-[#C9A96E]/20 transition-colors">
-                <value.icon size={28} className="text-[#C9A96E]" />
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--gold)]/10 flex items-center justify-center group-hover:bg-[var(--gold)]/20 transition-colors">
+                <value.icon size={28} className="text-[var(--gold)]" />
               </div>
-              <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-[#E8E8E8] mb-4 group-hover:text-[#C9A96E] transition-colors">
+              <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-[var(--foreground)] mb-4 group-hover:text-[var(--gold)] transition-colors">
                 {value.title}
               </h3>
-              <p className="text-[#E8E8E8]/60 text-sm leading-relaxed">
+              <p className="text-[var(--foreground)]/60 text-sm leading-relaxed">
                 {value.description}
               </p>
             </motion.div>
@@ -183,7 +188,7 @@ export function About() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <span className="text-[#C9A96E] text-sm uppercase tracking-[0.3em] mb-8 block">
+          <span className="text-[var(--gold)] text-sm uppercase tracking-[0.3em] mb-8 block">
             Our Journey
           </span>
           <div className="flex flex-wrap justify-center gap-8 lg:gap-16">
@@ -199,7 +204,7 @@ export function About() {
                 <div className="text-2xl lg:text-3xl font-bold text-gold-gradient font-[family-name:var(--font-playfair)] mb-2">
                   {milestone.year}
                 </div>
-                <div className="text-[#E8E8E8]/50 text-sm">
+                <div className="text-[var(--foreground)]/50 text-sm">
                   {milestone.event}
                 </div>
               </motion.div>

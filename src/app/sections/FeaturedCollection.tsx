@@ -29,9 +29,13 @@ export function FeaturedCollection() {
       ref={containerRef}
       className="relative py-32 overflow-hidden"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-[#0A0A0A]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A2E]/30 via-transparent to-[#1A1A2E]/30" />
+      {/* Background - Dark Mode */}
+      <div className="absolute inset-0 bg-[#0A0A0A] dark-only" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A2E]/30 via-transparent to-[#1A1A2E]/30 dark-only" />
+      
+      {/* Background - Light Mode */}
+      <div className="absolute inset-0 bg-[#FAF8F5] light-only" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F5F2ED]/50 via-transparent to-[#F5F2ED]/50 light-only" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
@@ -42,13 +46,13 @@ export function FeaturedCollection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <span className="text-[#C9A96E] text-sm uppercase tracking-[0.3em] mb-4 block">
+          <span className="text-[var(--gold)] text-sm uppercase tracking-[0.3em] mb-4 block">
             Curated Selection
           </span>
-          <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl lg:text-6xl font-bold text-[#E8E8E8] mb-6">
+          <h2 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--foreground)] mb-6">
             Featured Collection
           </h2>
-          <p className="text-[#E8E8E8]/60 max-w-2xl mx-auto">
+          <p className="text-[var(--foreground)]/60 max-w-2xl mx-auto">
             Our most coveted pieces, each telling a unique story of craftsmanship
             and timeless beauty.
           </p>
@@ -130,19 +134,19 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: isHovered ? 1 : 0 }}
-            className="absolute inset-0 bg-[#0A0A0A]/60 backdrop-blur-sm flex items-center justify-center gap-4"
+            className="absolute inset-0 bg-[var(--background)]/60 backdrop-blur-sm flex items-center justify-center gap-4"
           >
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 rounded-full bg-[#C9A96E] flex items-center justify-center text-[#0A0A0A]"
+              className="w-12 h-12 rounded-full bg-[var(--gold)] flex items-center justify-center text-[var(--background)]"
             >
               <Eye size={20} />
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 rounded-full border border-[#E8E8E8]/30 flex items-center justify-center text-[#E8E8E8] hover:bg-[#E8E8E8]/10"
+              className="w-12 h-12 rounded-full border border-[var(--foreground)]/30 flex items-center justify-center text-[var(--foreground)] hover:bg-[var(--foreground)]/10"
             >
               <Heart size={20} />
             </motion.button>
@@ -151,10 +155,10 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
 
         {/* Product Info */}
         <div className="p-6">
-          <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-[#E8E8E8] mb-2 group-hover:text-[#C9A96E] transition-colors">
+          <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-[var(--foreground)] mb-2 group-hover:text-[var(--gold)] transition-colors">
             {product.name}
           </h3>
-          <p className="text-[#E8E8E8]/50 text-sm mb-4 line-clamp-2">
+          <p className="text-[var(--foreground)]/50 text-sm mb-4 line-clamp-2">
             {product.description}
           </p>
 
@@ -166,8 +170,8 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
                 onClick={() => setSelectedMaterial(material)}
                 className={`w-6 h-6 rounded-full border-2 transition-all duration-300 ${
                   selectedMaterial === material
-                    ? "border-[#C9A96E] scale-110"
-                    : "border-transparent hover:border-[#E8E8E8]/30"
+                    ? "border-[var(--gold)] scale-110"
+                    : "border-transparent hover:border-[var(--foreground)]/30"
                 }`}
                 style={{ backgroundColor: materialColors[material] }}
                 title={material}
@@ -183,7 +187,7 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-[#C9A96E]/10 border border-[#C9A96E]/30 rounded-full text-[#C9A96E] text-sm hover:bg-[#C9A96E] hover:text-[#0A0A0A] transition-all duration-300"
+              className="px-4 py-2 bg-[var(--gold)]/10 border border-[var(--gold)]/30 rounded-full text-[var(--gold)] text-sm hover:bg-[var(--gold)] hover:text-[var(--background)] transition-all duration-300"
             >
               Add to Cart
             </motion.button>
